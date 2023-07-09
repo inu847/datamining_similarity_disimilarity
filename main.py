@@ -15,8 +15,8 @@ data_numberic = [[0 for _ in range(len(numberic))] for _ in range(len(numberic))
 def print_data():
     # VIEW DATA IN ONE TABLE
     for i in range(len(nominal)):
-        print(nominal[i], end="\t|\t")
-        print(ordinal[i], end="\t|\t")
+        print(nominal[i], end="\t")
+        print(ordinal[i], end="\t")
         print(numberic[i])
     print()
     
