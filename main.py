@@ -14,21 +14,29 @@ data_numberic = [[0 for _ in range(len(numberic))] for _ in range(len(numberic))
 
 def print_data():
     # VIEW DATA IN ONE TABLE
+    print("\n============================")
+    print("====\tDATA TABEL\t====")
+    print("============================")
+    print("INDEX\tKEAKTIFAN\tNILAI UAS")
     for i in range(len(nominal)):
         print(nominal[i], end="\t")
-        print(ordinal[i], end="\t")
+        print(ordinal[i], end="\t\t")
         print(numberic[i])
+    print("\nKeterangan Keaktifan Excellent = 3, Fair = 2, Good= 1")
     print()
     
 
 def numberic_function():
-    print("NUMERIC")
+    print("====================")
+    print("====\tNUMERIC\t====")
+    print("====================")
     max_numeric = max(numberic)
     min_numeric = min(numberic)
     print("Max: ", max_numeric)
     print("Min: ", min_numeric)
+    print()
 
-    print("\nMatriks ketidakmiripan disimilarity")
+    print("====================================\n====\tMatriks Atribut Numerik\t====")
     print("=========================================================================================")
     for i in range(len(numberic)):
         for j in range(len(numberic)):
@@ -43,11 +51,13 @@ def numberic_function():
 
 
 def nominal_function():
-    print("NOMINAL")
+    print("====================")
+    print("====\tNOMINAL\t====")
+    print("====================\n")
     # HITUNG MATRIKS KETIDAKMIRIPAN DISIMILARYTY
     # 1. JUMLAH DATA
     jumlah_data = len(nominal)
-    print("Jumlah data: ", jumlah_data)
+    print("Jumlah data: ", jumlah_data,"\n")
     # 2. JUMLAH DATA YANG SAMA
     jumlah_data_sama = 0
     jumlah_data_tidak_sama = 0
@@ -71,10 +81,12 @@ def nominal_function():
                 jumlah_data_tidak_sama += 1
         print()
     print("=========================================================================================")
-    print("Jumlah data yang sama: ", jumlah_data_sama)
+    print("\nJumlah data yang sama: ", jumlah_data_sama,"\n")
 
 def ordinal_function():
-    print("ORDINAL")
+    print("====================")
+    print("====\tORDINAL\t====")
+    print("====================")
     # NORMALISASI ORDINAL
     # 1. MENCARI MIN
     min_ordinal = min(ordinal)
@@ -88,17 +100,19 @@ def ordinal_function():
         # RUMUS: (X - MIN) / (MAX - MIN)
         normalisasi = (ordinal[i] - min_ordinal) / (max_ordinal - min_ordinal)
         normalisasi_ordinal.append(normalisasi)
-    print("Normalisasi ordinal: ", normalisasi_ordinal)
+    print("\n============================================================")
+    print("=== Normalisasi ordinal: ", normalisasi_ordinal, "===")
+    print("============================================================")
 
     # HITUNG MATRIKS KETIDAKMIRIPAN DISIMILARYTY
     # 1. JUMLAH DATA
     jumlah_data = len(normalisasi_ordinal)
-    print("Jumlah data: ", jumlah_data)
+    print("\nJumlah data: ", jumlah_data)
     # 2. JUMLAH DATA YANG SAMA
     jumlah_data_sama = 0
     jumlah_data_tidak_sama = 0
 
-    print("=========================================================================================")
+    print("\n=========================================================================================")
     for i in range(jumlah_data):
         for j in range(jumlah_data):
             # RUMUS = |X - Y|
@@ -125,7 +139,8 @@ def campuran_function():
 
     len_data_method = 3
 
-    print("Matriks CAMPURAN")
+    print("=====================")
+    print("Matriks CAMPURAN ====")
     print("=========================================================================================")
     for i in range(len(nominal)):
         for j in range(len(nominal)):
@@ -138,11 +153,14 @@ def campuran_function():
         
 def main():
     # SELECT OPTION TO FUNCTION
-    print("1. Numberic")
+    print("============================================================================")
+    print("====\tPilihan Data Similarity Dissimilarity Yang Akan Dihitung\t====")
+    print("============================================================================\n")
+    print("1. Numeric")
     print("2. Nominal")
     print("3. Ordinal")
     print("4. Campuran")
-    option = int(input("Select option: "))
+    option = int(input("\nPilih Opsi: "))
     if option == 1:
         print_data()
         numberic_function()
